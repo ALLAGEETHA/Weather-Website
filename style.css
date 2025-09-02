@@ -1,0 +1,85 @@
+/* ===============================
+   Base & typography
+================================*/
+* { box-sizing: border-box; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial; color: #0f172a; }
+
+/* Cards & skeleton */
+.card { background: #ffffff; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 8px 40px rgba(0,0,0,.1); border: 1px solid rgba(2,6,23,0.06); }
+.skeleton-card { height: 140px; border-radius: 1rem; background: linear-gradient(90deg, #e6e9ef 25%, #f3f4f6 37%, #e6e9ef 63%); background-size: 400% 100%; animation: shimmer 1.2s infinite; }
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+
+/* Icons & metrics */
+.weather-icon { width: 64px; height: 64px; display:block; margin: 0.25rem auto; }
+.metric { display: inline-flex; align-items: center; gap: .4rem; }
+.metric svg { width: 16px; height: 16px; }
+.metrics-row { display:flex; justify-content:center; gap:.6rem; flex-wrap:wrap; margin-top:.4rem; }
+.chip { display:inline-flex; align-items:center; gap:.4rem; border: 1px solid #c7d2fe; background:#eef2ff; border-radius: 9999px; padding:.35rem .7rem; font-size: .8rem; color:#1f2937; font-weight: 500; }
+
+/* Buttons */
+.btn { transition: transform .06s ease; }
+.btn:active { transform: translateY(1px); }
+
+/* Hourly scroller */
+.hourly-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(110px, 1fr);
+  gap: .75rem;
+  overflow-x: auto;
+  padding-bottom: .25rem;
+  scrollbar-width: thin;
+}
+.hour-card {
+  background: #ffffff;
+  border: 1px solid rgba(2,6,23,0.06);
+  border-radius: .85rem;
+  padding: .6rem .75rem;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,.06);
+  min-width: 110px;
+}
+.hour-card .time { font-weight: 700; color: #0f172a; }
+.hour-card .sub { font-size: .8rem; color: #475569; }
+
+/* Dynamic backgrounds */
+.bg-default { background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1e3a8a 100%); }
+.bg-sunny   { background: linear-gradient(135deg, #fde68a 0%, #fbbf24 40%, #f59e0b 100%); }
+.bg-cloudy  { background: linear-gradient(135deg, #e5e7eb 0%, #cbd5e1 50%, #94a3b8 100%); }
+.bg-mist    { background: linear-gradient(135deg, #c7d2fe 0%, #e5e7eb 40%, #cbd5e1 100%); }
+.bg-snow    { background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 40%, #ffffff 100%); }
+
+.bg-rainy { background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%); position: relative; overflow: hidden; }
+.bg-rainy::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.25) 0px, rgba(255,255,255,.25) 2px, rgba(255,255,255,.05) 2px, rgba(255,255,255,.05) 6px);
+  animation: rain 1s linear infinite; pointer-events: none; z-index: 0;
+}
+@keyframes rain { from { background-position: 0 0; } to { background-position: -140px 220px; } }
+
+/* Toast (custom popup for errors) */
+.toast { position: fixed; bottom: 16px; right: 16px; z-index: 50; max-width: 90vw; }
+.toast-body { display: inline-flex; align-items: center; gap: .75rem; background: #111827; color: #f8fafc; padding: .75rem 1rem; border-radius: .75rem; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+.toast-close { background: #374151; color: #f8fafc; border: none; border-radius: .5rem; padding: .25rem .5rem; cursor: pointer; }
+.toast.show { display: block; animation: pop .18s ease-out; }
+.hidden { display: none; }
+@keyframes pop { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Responsive targets */
+@media (max-width: 380px) { /* iPhone SE */
+  .btn { padding: .5rem .75rem; font-size: .9rem; }
+  .weather-icon { width: 56px; height: 56px; }
+  .shell { margin-top: .75rem; }
+}
+@media (min-width: 641px) and (max-width: 1024px) { /* iPad Mini */
+  .forecast-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .controls { grid-template-columns: 1fr auto !important; }
+  .shell { max-width: 48rem !important; }
+}
+@media (min-width: 1024px) { /* Desktop */
+  .forecast-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .shell { max-width: 56rem !important; }
+}
+
+/* style(css): micro polish for buttons and chips (marker) */
