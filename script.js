@@ -234,3 +234,5 @@ currentLocationBtn.addEventListener("click", ()=>{
 updateRecentCitiesDropdown();
 
 // feat(js): 5-day forecast renderer with date/temp/wind/humidity (marker)
+
+// feat(js): recent cities dropdown with localStorage (marker)
