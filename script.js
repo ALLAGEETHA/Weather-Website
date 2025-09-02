@@ -238,3 +238,5 @@ updateRecentCitiesDropdown();
 // feat(js): recent cities dropdown with localStorage (marker)
 
 // feat(js): °C/°F toggle for current temperature only (marker)
+
+// feat(js): dynamic backgrounds + extreme-heat alert banner (marker)
