@@ -242,3 +242,5 @@ updateRecentCitiesDropdown();
 // feat(js): dynamic backgrounds + extreme-heat alert banner (marker)
 
 // feat(js): validation + custom toast errors (no alert()) (marker)
+
+// feat(js): fetch timeout + HTTP status-to-message mapping (marker)
