@@ -240,3 +240,5 @@ updateRecentCitiesDropdown();
 // feat(js): °C/°F toggle for current temperature only (marker)
 
 // feat(js): dynamic backgrounds + extreme-heat alert banner (marker)
+
+// feat(js): validation + custom toast errors (no alert()) (marker)
