@@ -1,0 +1,41 @@
+{
+  "name": "Weather Forecast App",
+  "short_name": "Weather",
+  "description": "Responsive weather forecast app with current conditions, hourly forecast, and 5-day predictions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#1f2937",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["weather", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Current Location",
+      "short_name": "Location",
+      "description": "Get weather for current location",
+      "url": "/?action=location",
+      "icons": [
+        {
+          "src": "icons/icon-192x192.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
